@@ -51,7 +51,7 @@
                 <items>
                   <Text text="{i18n>monto}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
                     visible="true"/>
-                  <Input id="p_monto_low" maxLength="16" showSearchButton="false" visible="true" width="auto"/>
+                  <Input id="p_monto_low" visible="true" width="auto"/>
                   <ToolbarSpacer width=""/>
                   <ToolbarSpacer width=""/>
                 </items>
@@ -208,10 +208,10 @@
                 <items>
                   <Text text="{i18n>xblnr}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
                     visible="true"/>
-                  <SearchField id="p_xblnr_low" maxlength="16" placeholder="" showSearchButton="false" visible="true" width="230px"/>
+                  <SearchField id="p_xblnr_low" placeholder="" showSearchButton="false" visible="true" width="230px"/>
                   <Text text="{i18n>a}" class="sapUiContentPadding" width="14px" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
                     visible="true"/>
-                  <SearchField id="p_xblnr_high" maxlength="16" placeholder="" showSearchButton="false" visible="true" width="230px"/>
+                  <SearchField id="p_xblnr_high"  placeholder="" showSearchButton="false" visible="true" width="230px"/>
                   <Button id="p_xblnr_" press="_onBtnSearchDialogIntervals" icon="sap-icon://indent" iconFirst="true" width="auto" enabled="true"
                     visible="true" iconDensityAware="false"/>
                   <ToolbarSpacer width=""/>
@@ -227,7 +227,7 @@
           <ScrollContainer horizontal="true" vertical="true" width="100%" height="500px" visible="true">
             <content>
               <Table id="oTableDoctos" width="100%" noDataText="{i18n>noresults}" mode="None" showSeparators="All" growing="true" growingThreshold="20"
-                growingScrollToLoad="true" items="{path:'/doctosSet', templateShareable:true}">
+                growingScrollToLoad="true" items="{path:'doctosSet>/doctosSet', templateShareable:true}">
                 <infoToolbar/>
                 <headerToolbar>
                   <OverflowToolbar width="100%" height="auto" design="Transparent" visible="true" enabled="true">
@@ -350,24 +350,24 @@
                 <items>
                   <ColumnListItem type="Active">
                     <cells>
-                      <Text text="{PROCESO}" width="auto" maxLines="5" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                      <Text text="{LIBER}" width="auto" maxLines="5" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                      <Text text="{S_LIBE}" width="auto" maxLines="5" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{doctosSet>PROCESO}" width="auto" maxLines="5" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{doctosSet>LIBER}" width="auto" maxLines="5" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{doctosSet>S_LIBE}" width="auto" maxLines="5" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
                       <core:Icon src="sap-icon://rhombus-milestone" size="20px" height="30px" width="30px" visible="true" press="_onPressFlujo"/>
                       <core:Icon src="sap-icon://workflow-tasks" size="20px" height="30px" width="30px" visible="true" press="_onPressFlujo2"/>
-                      <Image src="{ERROR3}" height="20px" width="auto" visible="true" densityAware="false"/>
-                      <Text text="{T_BUKRS}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                      <Link text="{EBELN}" href="{LINK_DOCTO}" textAlign="Begin" width="auto" target="_blank" wrapping="true" enabled="true" visible="true"
+                      <Image src="{doctosSet>ERROR3}" height="20px" width="auto" visible="true" densityAware="false"/>
+                      <Text text="{doctosSet>T_BUKRS}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Link text="{doctosSet>EBELN}" href="{LINK_DOCTO}" textAlign="Begin" width="auto" target="_blank" wrapping="true" enabled="true" visible="true"
                         emphasized="true" subtle="false"/>
                       <core:Icon src="sap-icon://download" size="20px" height="30px" width="30px" visible="true" press="_onPressDownload"/>
-                      <ObjectNumber number="{AMOUNT_FORMATTED}" unit="{WAERS}" emphasized="true" state="None"/>
-                      <Text text="{LIFNR}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                      <Text text="{T_LIFNR}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                      <Text text="{T_BSART}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                      <Text text="{BEDAT}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                      <Text text="{T_EKGRP}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                      <Text text="{ERNAM}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
-                      <Text text="{ESTADO}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <ObjectNumber number="{doctosSet>AMOUNT_FORMATTED}" unit="{WAERS}" emphasized="true" state="None"/>
+                      <Text text="{doctosSet>LIFNR}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{doctosSet>T_LIFNR}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{doctosSet>T_BSART}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{doctosSet>BEDAT}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{doctosSet>T_EKGRP}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{doctosSet>ERNAM}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{doctosSet>ESTADO}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
                     </cells>
                   </ColumnListItem>
                 </items>
@@ -382,7 +382,7 @@
         <content>
           <ToolbarSpacer width=""/>
           <Button text="{i18n>searchBtnBottom}" press="_onBtnSearchPress" type="Emphasized" icon="sap-icon://search" iconFirst="true" width="auto" enabled="true"
-            visible="true" iconDensityAware="false" style="biggerBtn" />
+            visible="true" iconDensityAware="false" />
         </content>
       </OverflowToolbar>
     </footer>

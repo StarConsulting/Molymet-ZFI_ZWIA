@@ -350,9 +350,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
         oView.byId("oTitleCounterDoctos").setText(String(concatenateStr.doctosSet.length));
         sap.ui.getCore().setModel(concatenateStr.doctosSet.length, "countDoctos");
         oView.setModel(oModelDoctosSet, "doctosSet");
-        oView.byId(
+        /*oView.byId(
           "oTableDoctos"
-        ).setModel(oModelDoctosSet);
+        ).setModel(oModelDoctosSet);*/
       };
       var fnVarError = function (err) {
         console.log("E: comm.");
@@ -935,14 +935,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
       this._dialogFlow = new sap.m.Dialog({
         // title: "Flujo del documento",
         title: oView.getModel("i18n").getProperty("flujodocumento"),
-        /*
-        beginButton: new sap.m.Button({
-          type: sap.m.ButtonType.Emphasized,
-          text: "OK",
-          press: function (oEvt) {
-            //this._dialogFlow.close();
-          }.bind(this)
-        }),*/
         endButton: new sap.m.Button({
           //  text: "Cerrar",
           text: oView.getModel("i18n").getProperty("cerrar"),
