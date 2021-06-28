@@ -1,0 +1,393 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="ZFI_ZWIA.controller.ListItems_1" xmlns="sap.m" xmlns:core="sap.ui.core"
+  xmlns:layout="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml">
+  <Page showHeader="true" title="{i18n>appTitle}" showFooter="true" showNavButton="false" navButtonPress="_onPageNavButtonPress">
+    <content>
+      <html:style>
+        .biggerBtn { padding: 4px 6px 4px 6px !important; }
+        .sapUiContentPadding { padding: 6px 12px 6px 12px !important; }
+      </html:style>
+      <Panel height="auto" width="100%" headerText="{i18n>parametros}" expandable="false" expanded="true" expandAnimation="true"
+        backgroundDesign="Solid">
+        <content>
+          <Panel height="auto" width="100%" headerText="{i18n>lifnr}" expandable="true" expanded="false" expandAnimation="true"
+            backgroundDesign="Solid">
+            <content>
+              <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <items>
+                  <Text text="{i18n>bukrs}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_bukrs" maxLength="4" type="Text" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="_onPressMatchCode" width="auto"
+                    required="true"/>
+                  <Text id="p_text" text="..." class="sapUiContentPadding" width="auto" maxLines="4" wrapping="true" textAlign="Left" textDirection="Inherit" visible="true"/>
+                  <ToolbarSpacer width=""/>
+                  <ToolbarSpacer width=""/>
+                </items>
+              </HBox>
+              <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <items>
+                  <Text text="{i18n>lifnr}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_lifnr" maxLength="10" type="Text" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="_onPressMatchCode" width="auto"/>
+                  <Text id="p_tlifnr" text="..." class="sapUiContentPadding" width="auto" maxLines="4" wrapping="true" textAlign="Left" textDirection="Inherit" visible="true"/>
+                  <ToolbarSpacer width=""/>
+                  <ToolbarSpacer width=""/>
+                </items>
+              </HBox>
+              <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <items>
+                  <Text text="{i18n>proce}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_proce_low" maxLength="1" type="Text" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="_onPressMatchCode"
+                    width="auto"/>
+                  <Button id="p_proce_" text="" press="_onBtnSearchDialogIntervals" icon="sap-icon://indent" iconFirst="true" width="auto" enabled="true"
+                    visible="true" iconDensityAware="false"/>
+                </items>
+              </HBox>
+              <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <items>
+                  <Text text="{i18n>monto}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_monto_low" maxLength="16" showSearchButton="false" visible="true" width="auto"/>
+                  <ToolbarSpacer width=""/>
+                  <ToolbarSpacer width=""/>
+                </items>
+              </HBox>
+              <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <items>
+                  <Text text="{i18n>moneda}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_moneda_low" placeholder="" maxLength="5" type="Text" showValueHelp="true" valueHelpOnly="false"
+                    valueHelpRequest="_onPressMatchCode" width="112px"/>
+                  <ToolbarSpacer width=""/>
+                  <ToolbarSpacer width=""/>
+                </items>
+              </HBox>
+              <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <items>
+                  <Text text="{i18n>fecha}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <DatePicker id="so_fecha_low" displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" width="auto"/>
+                  <Text text="{i18n>a}" class="sapUiContentPadding" width="auto" maxLines="4" wrapping="true" textAlign="Center" textDirection="Inherit"
+                    visible="true"/>
+                  <DatePicker id="so_fecha_high" displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" width="auto"/><Button id="so_fecha_" text="" press="_onBtnSearchDialogIntervals" icon="sap-icon://indent" iconFirst="true" width="auto" enabled="true"
+                    visible="true" iconDensityAware="false"/>
+                </items>
+              </HBox>
+            </content>
+          </Panel>
+          <Panel height="auto" width="100%" headerText="{i18n>seleccione}" expandable="true" expanded="false" expandAnimation="true"
+            backgroundDesign="Solid">
+            <content>
+              <RadioButtonGroup
+                id="sap_Worklist_Page_0-content-sap_m_Panel-1576507612704-i44wta3qtkvi19zf48a49zdu2_S2-content-sap_m_Panel-1576730800718-content-sap_m_RadioButtonGroup-1576730923592"
+                columns="2" selectedIndex="0" valueState="None" width="auto" editable="true" enabled="true" textDirection="Inherit"
+                select="_onRadioButtonGroupSelect">
+                <buttons>
+                  <RadioButton id="r1" text="{i18n>r1}" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="true"/>
+                  <RadioButton id="r2" text="{i18n>r2}" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+                </buttons>
+              </RadioButtonGroup>
+            </content>
+          </Panel>
+          <Panel height="auto" width="100%" headerText="{i18n>tiCompra}" expandable="true" expanded="false" expandAnimation="true"
+            backgroundDesign="Solid">
+            <content>
+              <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <items>
+                  <Text text="{i18n>ebeln}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_ebeln_low" maxLength="10" type="Text" showValueHelp="false" valueHelpOnly="false" valueHelpRequest="_onPressMatchCode"
+                    width="auto"/>
+                  <Text text="{i18n>a}" class="sapUiContentPadding" width="auto" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_ebeln_high" maxLength="10" type="Text" showValueHelp="false" valueHelpOnly="false" valueHelpRequest="_onPressMatchCode"
+                    width="auto"/>
+                  <Button id="p_ebeln_" text="" press="_onBtnSearchDialogIntervals" icon="sap-icon://indent" iconFirst="true" width="auto" enabled="true"
+                    visible="true" iconDensityAware="false"/>
+                  <ToolbarSpacer width=""/>
+                  <ToolbarSpacer width=""/>
+                </items>
+              </HBox>
+              <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <items>
+                  <Text text="{i18n>bsart}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_bsart_low" maxLength="4" type="Text" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="_onPressMatchCode"
+                    width="112px"/>
+                  <Text text="{i18n>a}" class="sapUiContentPadding" width="auto" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_bsart_high" maxLength="4" type="Text" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="_onPressMatchCode"
+                    width="112px"/>
+                  <Button id="p_bsart_" text="" press="_onBtnSearchDialogIntervals" icon="sap-icon://indent" iconFirst="true" width="auto" enabled="true"
+                    visible="true" iconDensityAware="false"/>
+                  <ToolbarSpacer width=""/>
+                  <ToolbarSpacer width=""/>
+                </items>
+              </HBox>
+              <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <items>
+                  <Text text="{i18n>ekgrp}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_ekgrp_low" maxLength="3" type="Text" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="_onPressMatchCode"
+                    width="112px"/>
+                  <Text text="{i18n>a}" class="sapUiContentPadding" width="auto" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_ekgrp_high" maxLength="3" type="Text" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="_onPressMatchCode"
+                    width="112px"/>
+                  <Button id="p_ekgrp_" text="" press="_onBtnSearchDialogIntervals" icon="sap-icon://indent" iconFirst="true" width="auto" enabled="true"
+                    visible="true" iconDensityAware="false"/>
+                  <ToolbarSpacer width=""/>
+                  <ToolbarSpacer width=""/>
+                </items>
+              </HBox>
+            </content>
+          </Panel>
+          <Panel height="auto" width="100%" headerText="{i18n>tiFactura}" expandable="true" expanded="false" expandAnimation="true"
+            backgroundDesign="Solid">
+            <content>
+              <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <items>
+                  <Text text="{i18n>belnr}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <SearchField id="p_belnr_low" maxLength="10" placeholder="" showSearchButton="false" visible="true" width="auto"/>
+                  <Text text="{i18n>a}" class="sapUiContentPadding" width="auto" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <SearchField id="p_belnr_high" maxLength="10" placeholder="" showSearchButton="false" visible="true" width="auto"/>
+                  <Button id="p_belnr_" text="" press="_onBtnSearchDialogIntervals" icon="sap-icon://indent" iconFirst="true" width="auto" enabled="true"
+                    visible="true" iconDensityAware="false"/>
+                  <ToolbarSpacer width=""/>
+                  <ToolbarSpacer width=""/>
+                </items>
+              </HBox>
+              <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <items>
+                  <Text text="{i18n>blart}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_blart_low" maxLength="2" type="Text" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="_onPressMatchCode"
+                    width="112px"/>
+                  <Text text="{i18n>a}" class="sapUiContentPadding" width="auto" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_blart_high" maxLength="2" type="Text" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="_onPressMatchCode"
+                    width="112px"/>
+                  <Button id="p_blart_" text="" press="_onBtnSearchDialogIntervals" icon="sap-icon://indent" iconFirst="true" width="auto" enabled="true"
+                    visible="true" iconDensityAware="false"/>
+                  <ToolbarSpacer width=""/>
+                  <ToolbarSpacer width=""/>
+                </items>
+              </HBox>
+              <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <items>
+                  <Text text="{i18n>ceco}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_ceco_low" maxLength="10" type="Text" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="_onPressMatchCode"
+                    width="112px"/>
+                  <Text text="{i18n>a}" class="sapUiContentPadding" width="auto" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <Input id="p_ceco_high" maxLength="10" type="Text" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="_onPressMatchCode"
+                    width="112px"/>
+                  <Button id="p_ceco_" text="" press="_onBtnSearchDialogIntervals" icon="sap-icon://indent" iconFirst="true" width="auto" enabled="true"
+                    visible="true" iconDensityAware="false"/>
+                  <ToolbarSpacer width=""/>
+                  <ToolbarSpacer width=""/>
+                </items>
+              </HBox>
+              <HBox alignItems="Stretch" direction="Row" fitContainer="false" width="100%" height="auto" justifyContent="Start" renderType="Div"
+                visible="true" displayInline="false">
+                <items>
+                  <Text text="{i18n>xblnr}" width="105px" class="sapUiContentPadding" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <SearchField id="p_xblnr_low" maxlength="16" placeholder="" showSearchButton="false" visible="true" width="230px"/>
+                  <Text text="{i18n>a}" class="sapUiContentPadding" width="14px" maxLines="4" wrapping="true" textAlign="Right" textDirection="Inherit"
+                    visible="true"/>
+                  <SearchField id="p_xblnr_high" maxlength="16" placeholder="" showSearchButton="false" visible="true" width="230px"/>
+                  <Button id="p_xblnr_" press="_onBtnSearchDialogIntervals" icon="sap-icon://indent" iconFirst="true" width="auto" enabled="true"
+                    visible="true" iconDensityAware="false"/>
+                  <ToolbarSpacer width=""/>
+                  <ToolbarSpacer width=""/>
+                </items>
+              </HBox>
+            </content>
+          </Panel>
+        </content>
+      </Panel>
+      <Panel height="auto" width="100%" headerText="" expandable="false" expanded="false" expandAnimation="true" backgroundDesign="Solid">
+        <content>
+          <ScrollContainer horizontal="true" vertical="true" width="100%" height="500px" visible="true">
+            <content>
+              <Table id="oTableDoctos" width="100%" noDataText="{i18n>noresults}" mode="None" showSeparators="All" growing="true" growingThreshold="20"
+                growingScrollToLoad="true" items="{path:'/doctosSet', templateShareable:true}">
+                <infoToolbar/>
+                <headerToolbar>
+                  <OverflowToolbar width="100%" height="auto" design="Transparent" visible="true" enabled="true">
+                    <content>
+                      <OverflowToolbarButton text="Settings" type="Transparent" icon="sap-icon://action-settings" iconFirst="true" width="auto" enabled="true"
+                        visible="false" iconDensityAware="false"/>
+                      <Text text="{i18n>Doctos}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="(" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text id="oTitleCounterDoctos" text="0" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text=")" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <SearchField search="_onSearchFilter" placeholder="" showSearchButton="true" visible="true" width="auto"/>
+                      <ToolbarSpacer width="auto"/>
+                    </content>
+                  </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col1}" width="100%" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col2}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col3}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col4}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col5}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col6}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col7}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col8}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col9}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Right" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col10}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col11}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col12}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col13}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col14}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col15}" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col16}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                  <Column width="105px" hAlign="Left" vAlign="Middle" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                    <header>
+                      <Text text="{i18n>col17}" width="68.00000000px" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </header>
+                    <footer/>
+                  </Column>
+                </columns>
+                <items>
+                  <ColumnListItem type="Active">
+                    <cells>
+                      <Text text="{PROCESO}" width="auto" maxLines="5" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{LIBER}" width="auto" maxLines="5" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{S_LIBE}" width="auto" maxLines="5" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <core:Icon src="sap-icon://rhombus-milestone" size="20px" height="30px" width="30px" visible="true" press="_onPressFlujo"/>
+                      <core:Icon src="sap-icon://workflow-tasks" size="20px" height="30px" width="30px" visible="true" press="_onPressFlujo2"/>
+                      <Image src="{ERROR3}" height="20px" width="auto" visible="true" densityAware="false"/>
+                      <Text text="{T_BUKRS}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Link text="{EBELN}" href="{LINK_DOCTO}" textAlign="Begin" width="auto" target="_blank" wrapping="true" enabled="true" visible="true"
+                        emphasized="true" subtle="false"/>
+                      <core:Icon src="sap-icon://download" size="20px" height="30px" width="30px" visible="true" press="_onPressDownload"/>
+                      <ObjectNumber number="{AMOUNT_FORMATTED}" unit="{WAERS}" emphasized="true" state="None"/>
+                      <Text text="{LIFNR}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{T_LIFNR}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{T_BSART}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{BEDAT}" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{T_EKGRP}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{ERNAM}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                      <Text text="{ESTADO}" width="auto" maxLines="4" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                    </cells>
+                  </ColumnListItem>
+                </items>
+              </Table>
+            </content>
+          </ScrollContainer>
+        </content>
+      </Panel>
+    </content>
+    <footer>
+      <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+        <content>
+          <ToolbarSpacer width=""/>
+          <Button text="{i18n>searchBtnBottom}" press="_onBtnSearchPress" type="Emphasized" icon="sap-icon://search" iconFirst="true" width="auto" enabled="true"
+            visible="true" iconDensityAware="false" style="biggerBtn" />
+        </content>
+      </OverflowToolbar>
+    </footer>
+    <headerContent/>
+    <subHeader/>
+    <customHeader/>
+  </Page>
+</mvc:View>

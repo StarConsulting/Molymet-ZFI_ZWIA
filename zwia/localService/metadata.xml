@@ -1,0 +1,120 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="599955d009d54a4c12637542" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="599955d009d54a4c12637542_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="materialesSet" EntityType="599955d009d54a4c12637542.materiales" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="caracteristicasSet" EntityType="599955d009d54a4c12637542.caracteristicas" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="caracteristicasmaterialesmateriales" Association="599955d009d54a4c12637542.caracteristicasmaterialesmateriales" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="caracteristicasSet" Role="FromRole_caracteristicasmaterialesmateriales"/>
+                    <End EntitySet="materialesSet" Role="ToRole_caracteristicasmaterialesmateriales"/>
+                </AssociationSet>
+                <EntitySet Name="catalogoSet" EntityType="599955d009d54a4c12637542.catalogo" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="catalogosubcatalogosubcatalogo" Association="599955d009d54a4c12637542.catalogosubcatalogosubcatalogo" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="catalogoSet" Role="FromRole_catalogosubcatalogosubcatalogo"/>
+                    <End EntitySet="subcatalogoSet" Role="ToRole_catalogosubcatalogosubcatalogo"/>
+                </AssociationSet>
+                <EntitySet Name="subcatalogoSet" EntityType="599955d009d54a4c12637542.subcatalogo" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="subcatalogocaracteristicascaracteristicas" Association="599955d009d54a4c12637542.subcatalogocaracteristicascaracteristicas" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="subcatalogoSet" Role="FromRole_subcatalogocaracteristicascaracteristicas"/>
+                    <End EntitySet="caracteristicasSet" Role="ToRole_subcatalogocaracteristicascaracteristicas"/>
+                </AssociationSet>
+                <EntitySet Name="SolicitudesSet" EntityType="599955d009d54a4c12637542.Solicitudes" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+            </EntityContainer>
+            <EntityType Name="materiales">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="nombre_corto" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="objeto"/>
+                <Property Name="precio" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="tipo_objeto"/>
+                <Property Name="moneda" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Rango_Medicion"/>
+                <Property Name="___FK_c8c5c031f8e8e86a126a0a3f_00014" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_c8c5c031f8e8e86a126a0a3f_00014"/>
+                <Property Name="unidad" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="unidad"/>
+                <Property Name="tiempo_entrega" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="tiempo_entrega"/>
+                <Property Name="numero_parte" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="numero_parte"/>
+                <Property Name="centro" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="centro"/>
+                <Property Name="fabricante" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="fabricante"/>
+                <Property Name="stock" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="stock"/>
+                <Property Name="porcentaje_acierto" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="porcentaje_acierto"/>
+            </EntityType>
+            <EntityType Name="caracteristicas">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="valor" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="DefaultName"/>
+                <Property Name="___FK_e6568d9354f71fcc1282266f_00017" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_e6568d9354f71fcc1282266f_00017"/>
+                <NavigationProperty Name="materiales" Relationship="599955d009d54a4c12637542.caracteristicasmaterialesmateriales" FromRole="FromRole_caracteristicasmaterialesmateriales" ToRole="ToRole_caracteristicasmaterialesmateriales"/>
+            </EntityType>
+            <Association Name="caracteristicasmaterialesmateriales">
+                <End Type="599955d009d54a4c12637542.caracteristicas" Multiplicity="1" Role="FromRole_caracteristicasmaterialesmateriales"/>
+                <End Type="599955d009d54a4c12637542.materiales" Multiplicity="*" Role="ToRole_caracteristicasmaterialesmateriales"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_caracteristicasmaterialesmateriales">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_caracteristicasmaterialesmateriales">
+                        <PropertyRef Name="___FK_c8c5c031f8e8e86a126a0a3f_00014"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="catalogo">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="cod" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="cod"/>
+                <NavigationProperty Name="subcatalogo" Relationship="599955d009d54a4c12637542.catalogosubcatalogosubcatalogo" FromRole="FromRole_catalogosubcatalogosubcatalogo" ToRole="ToRole_catalogosubcatalogosubcatalogo"/>
+            </EntityType>
+            <Association Name="catalogosubcatalogosubcatalogo">
+                <End Type="599955d009d54a4c12637542.catalogo" Multiplicity="1" Role="FromRole_catalogosubcatalogosubcatalogo"/>
+                <End Type="599955d009d54a4c12637542.subcatalogo" Multiplicity="*" Role="ToRole_catalogosubcatalogosubcatalogo"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_catalogosubcatalogosubcatalogo">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_catalogosubcatalogosubcatalogo">
+                        <PropertyRef Name="___FK_e6568d9354f71fcc1282266f_00009"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="subcatalogo">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="___FK_e6568d9354f71fcc1282266f_00009" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_e6568d9354f71fcc1282266f_00009"/>
+                <NavigationProperty Name="caracteristicas" Relationship="599955d009d54a4c12637542.subcatalogocaracteristicascaracteristicas" FromRole="FromRole_subcatalogocaracteristicascaracteristicas" ToRole="ToRole_subcatalogocaracteristicascaracteristicas"/>
+            </EntityType>
+            <Association Name="subcatalogocaracteristicascaracteristicas">
+                <End Type="599955d009d54a4c12637542.subcatalogo" Multiplicity="1" Role="FromRole_subcatalogocaracteristicascaracteristicas"/>
+                <End Type="599955d009d54a4c12637542.caracteristicas" Multiplicity="*" Role="ToRole_subcatalogocaracteristicascaracteristicas"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_subcatalogocaracteristicascaracteristicas">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_subcatalogocaracteristicascaracteristicas">
+                        <PropertyRef Name="___FK_e6568d9354f71fcc1282266f_00017"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Solicitudes">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="fecha_creacion" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="fecha_creacion"/>
+                <Property Name="nombre" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="nombre"/>
+                <Property Name="tipo_solicitud" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="tipo_solicitud"/>
+                <Property Name="centro" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="centro"/>
+                <Property Name="usuario_creador" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="usuario_creador"/>
+                <Property Name="etapa" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="etapa"/>
+                <Property Name="fecha_actualizacio" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="fecha_actualizacio"/>
+                <Property Name="codgio_sap" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="codgio_sap"/>
+                <Property Name="estado_etapa" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="estado_etapa"/>
+                <Property Name="fabricante" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="fabricante"/>
+                <Property Name="DefaultName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="DefaultName"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
