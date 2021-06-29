@@ -200,7 +200,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
       return arr;
     },
     _onBtnSearchPress: function () {
-      console.log("btn search pressed!");
+      //console.log("btn search pressed!");
       var oView = this.getView(),
         oController = this,
         status = true,
@@ -248,16 +248,17 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
         "file": "NA"
       };
       var fnVarSuccess = function (oData, response) {
-        console.log("S: comm.");
-        console.log(oData);
-        console.log(response);
+        //console.log("S: comm.");
+        //console.log(oData);
+        //console.log(response);
         var concatenateStr = "";
         for (var x = 0; x < oData.results.length; x++) {
           concatenateStr += oData.results[x].Item;
         }
-        console.log(concatenateStr);
+        //console.log(concatenateStr);
         concatenateStr = JSON.parse(concatenateStr);
-        for (let index = 0; index < concatenateStr.length; index++) {
+        var index;
+        for (index = 0; index < concatenateStr.length; index++) {
           if (concatenateStr[index]["ERROR"] === "@08@") {
             //concatenateStr[index]["ERROR3"] = "./resources/green_light.png";
             concatenateStr[index]["ERROR3"] = UTI.greenLight_b64;
@@ -373,14 +374,33 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
       UTI.onCallReadOdata(object, fnVarSuccess, fnVarError, sap.ui.getCore().byId("App").getModel("dataSource"));
     },
     _dialogFlow: null,
+    
     _onPressFlujo: function (oEvt) {
       console.log(this);
       console.log(oEvt);
+      var oView = this.getView();
+      
+      if (!this._dialogFlow){
+      	this._dialogFlow = new sap.m.Dialog({
+        	title: oView.getModel("i18n").getProperty("flujodocumento"),
+        	endButton: new sap.m.Button({
+        		//  text: "Cerrar",
+        		text: oView.getModel("i18n").getProperty("cerrar"),
+        		press: function (oEvt) {
+        			this._dialogFlow.close();
+        		}.bind(this)
+        	})
+    	});
+    	this.getView().addDependent(this._dialogFlow);
+      }
+      
+      
       this._dialogFlow.destroyContent();
-      var path = oEvt.getSource().getParent().getBindingContext().getPath();
+      var path = oEvt.getSource().getParent().getBindingContextPath();
       var idx = parseInt(path.substring(path.lastIndexOf('/') + 1));
       this._dialogFlow.addContent(new sap.ui.core.HTML({
-        content: oEvt.getSource().getParent().getBindingContext().oModel.oData.doctosSet[idx].HTML_APROBADORES
+        //content: oEvt.getSource().getParent().getBindingContext().oModel.oData.doctosSet[idx].HTML_APROBADORES
+        content: this.getView().getModel("doctosSet").getProperty(path).HTML_APROBADORES
       }));
       this._dialogFlow.open();
     },
@@ -926,14 +946,15 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
       this.oRouter.getTarget("ListItems_1").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
     },
     onAfterRendering: function () {
-      console.log(this);
+      //console.log(this);
       var oFromDate = this.getView().byId('so_fecha_low');
       var oToDate = this.getView().byId('so_fecha_high');
       var oView = this.getView();
       oToDate.setValue(UTI._ActualDateformated());
       oFromDate.setValue(UTI._manipulateDate(null, 30, "sub"));
+     
+     /*
       this._dialogFlow = new sap.m.Dialog({
-        // title: "Flujo del documento",
         title: oView.getModel("i18n").getProperty("flujodocumento"),
         endButton: new sap.m.Button({
           //  text: "Cerrar",
@@ -944,6 +965,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
         })
       });
       this.getView().addDependent(this._dialogFlow);
+      */
 
       this._loadIntervals("p_proce_");
       this._loadIntervals("p_monto_");
@@ -957,4 +979,4 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
       this._loadIntervals("p_xblnr_");
     }
   });
-}, /* bExport= */ true);
+});
